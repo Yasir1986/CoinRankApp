@@ -1,38 +1,58 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #f4f5f7;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  margin-bottom: 30px;
+  color: #222;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* 🟢 Exactly 2 cards per row */
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+/* 🟢 Card design */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.card h2 {
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.card p {
+  margin: 4px 0;
+  color: #666;
+}
+
+/* 🟢 On mobile: 1 per row */
+@media (max-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
   }
 }
