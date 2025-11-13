@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
+import { Coin } from './types';
 import "./App.css";
 
-interface Coin {
-  uuid: string;
-  symbol: string;
-  name: string;
-  price: string;
-  iconUrl: string;
-}
 
 function App() {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -23,6 +17,7 @@ function App() {
         if (!res.ok) throw new Error("API fetch failed");
         const data = await res.json();
         setCoins(data.data.coins);
+        console.log('Data:', data.data.coins)
       } catch (err: any) {
         setError(err.message);
       } finally {
