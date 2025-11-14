@@ -11,7 +11,7 @@ h1 {
   color: #222;
 }
 
-/* 🟢 Exactly 2 cards per row */
+/* Grid wrapper: 2 columns on large screens, 1 on small screens */
 .card-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -19,14 +19,25 @@ h1 {
   justify-items: center;
 }
 
-/* 🟢 Card design */
+/* Responsive: 1 column on screens smaller than 700px */
+@media (max-width: 700px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card styling */
 .card {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 250px;
+  width: 100%;
+  max-width: 500px;  /* makes card bigger on large screens */
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -35,24 +46,70 @@ h1 {
 }
 
 .card img {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
+  margin: 0 auto 10px;
 }
 
 .card h2 {
   margin: 10px 0 5px;
   color: #333;
+  font-size: 1.2rem;
 }
 
 .card p {
   margin: 4px 0;
   color: #666;
+  font-size: 0.95rem;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* 🟢 On mobile: 1 per row */
-@media (max-width: 768px) {
-  .card-wrapper {
-    grid-template-columns: 1fr;
-  }
+/* Bottom row: price + button */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.bottom span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.center {
+  text-align: center;
+  margin-top: 50px;
+  color: #444;
+}
+
+.error {
+  color: red;
+}
+
+.no-results {
+  font-size: 1rem;
+  color: #666;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #666;
 }
